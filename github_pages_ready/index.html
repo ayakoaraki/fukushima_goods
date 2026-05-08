@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FUKUSHIMA QUALITY × Goods Series</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #FBF6EC;
+    --bg-deep: #3A2E20;
+    --bg-soft: #F4EEDC;
+    --ink: #2A2018;
+    --ink-soft: #6B5D4A;
+    --ink-mute: #A89A82;
+    --gold: #D4A24C;
+    --line: #D6CDB8;
+    --serif-en: 'Cormorant Garamond', serif;
+    --serif-jp: 'Noto Serif JP', serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-base);
+    color: var(--ink);
+    font-family: var(--serif-jp);
+    font-weight: 400;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(58, 46, 32, 0.015) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(58, 46, 32, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  header {
+    padding: 80px 0 60px;
+    text-align: center;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .brand-mark { display: inline-block; margin-bottom: 60px; }
+  .brand-en-1 {
+    font-family: var(--serif-en);
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.4em;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .brand-en-2 {
+    font-family: var(--serif-en);
+    font-weight: 500;
+    font-size: 32px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .brand-divider {
+    width: 40px;
+    height: 0.5px;
+    background: var(--ink);
+    margin: 16px auto;
+  }
+  .brand-tag {
+    font-family: var(--serif-jp);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ink-soft);
+  }
+  h1 {
+    font-family: var(--serif-jp);
+    font-weight: 400;
+    font-size: 42px;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+  h1 em {
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+  .lead {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--ink-soft);
+  }
+  .meta-row {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .meta-row span strong {
+    display: block;
+    font-weight: 500;
+    color: var(--ink);
+    margin-top: 4px;
+  }
+
+  .principle {
+    padding: 100px 0 80px;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .section-num {
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--serif-jp);
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .section-title-en {
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-mute);
+    margin-bottom: 40px;
+  }
+  .principle-lead {
+    max-width: none;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  .principle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .principle-item {
+    text-align: center;
+    padding: 32px 16px;
+    border-top: 0.5px solid var(--line);
+  }
+  .principle-num {
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .principle-name {
+    font-family: var(--serif-jp);
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .principle-desc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.9;
+  }
+
+  .items { padding: 100px 0; }
+  .item {
+    padding: 80px 0;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .item:last-child { border-bottom: none; }
+
+  .item-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .item-num-block {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+  .item-num {
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .item-name {
+    font-family: var(--serif-jp);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .item-name-en {
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  .item-launch {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    border: 0.5px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+  .item-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .image-frame {
+    background: var(--bg-soft);
+    padding: 32px;
+    border-radius: 2px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .image-frame.placeholder {
+    border: 0.5px dashed var(--ink-mute);
+    background: var(--bg-soft);
+    color: var(--ink-mute);
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-size: 13px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .image-frame.placeholder svg { opacity: 0.3; }
+  .item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 8px;
+  }
+  .item-section-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .item-description {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--ink);
+  }
+  .item-meta {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 8px 16px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .item-meta dt {
+    color: var(--ink-mute);
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding-top: 4px;
+  }
+  .item-meta dd { color: var(--ink); }
+  .item-meta dd a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--gold);
+    padding-bottom: 1px;
+    font-size: 11px;
+  }
+
+  /* レシピ本2画像横並び用 */
+  .item-body.recipe-dual {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .recipe-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .recipe-image-wrap {
+    text-align: center;
+  }
+  .recipe-image-wrap.cover .image-frame {
+    aspect-ratio: 4 / 5;
+    margin-bottom: 12px;
+  }
+  .recipe-image-wrap.spread .image-frame {
+    aspect-ratio: 4 / 3;
+    margin-bottom: 12px;
+  }
+  .recipe-image-label {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+
+  /* バリエーション用 */
+  .item-body.multi-variation {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .item-body.multi-variation .item-content { margin-bottom: 16px; }
+
+  .variation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .variation-item { text-align: center; }
+  .variation-image-frame {
+    background: var(--bg-soft);
+    padding: 20px;
+    border-radius: 2px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border: 0.5px solid transparent;
+  }
+  .variation-image-frame.primary {
+    border-color: var(--gold);
+    background: var(--bg-base);
+  }
+  .variation-image-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .variation-label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .variation-desc {
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .recommended-mark {
+    display: inline-block;
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-size: 10px;
+    color: var(--gold);
+    margin-left: 4px;
+  }
+
+  footer {
+    padding: 80px 0 60px;
+    text-align: center;
+    border-top: 0.5px solid var(--line);
+    background: var(--bg-deep);
+    color: var(--bg-base);
+    margin-top: 40px;
+  }
+  footer .brand-en-2 { color: var(--gold); margin-bottom: 24px; }
+  footer .brand-en-1 { color: var(--bg-base); }
+  footer .footer-meta {
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(251, 246, 236, 0.5);
+    text-transform: uppercase;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 760px) {
+    .container { padding: 0 24px; }
+    h1 { font-size: 28px; }
+    .brand-en-2 { font-size: 24px; }
+    .meta-row { flex-direction: column; gap: 16px; }
+    .principle-grid { grid-template-columns: 1fr; gap: 16px; }
+    .item-body { grid-template-columns: 1fr; gap: 32px; }
+    .item-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .variation-grid { grid-template-columns: 1fr; }
+    .recipe-images { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="container">
+  <div class="brand-mark">
+    <div class="brand-en-1">Fukushima</div>
+    <div class="brand-en-2">QUALITY</div>
+    <div class="brand-divider"></div>
+    <div class="brand-tag">福島県農林水産物 ブランディング事業</div>
+  </div>
+
+  <h1>
+    コラボグッズ <em>Series</em><br>
+    デザイン提案
+  </h1>
+
+  <p class="lead">
+    著名人を「品質の証言者」として位置づけ、
+    FUKUSHIMA QUALITY を主役に据えた
+    シリーズグッズ4アイテムのデザイン案。
+  </p>
+</header>
+
+<section class="items container">
+  <div class="section-num">— 01 —</div>
+  <h2 class="section-title">アイテム一覧</h2>
+  <div class="section-title-en">Four Items in the Series</div>
+
+  <!-- ① ステッカー -->
+  <article class="item">
+    <div class="item-header">
+      <div class="item-num-block">
+        <div class="item-num">01</div>
+        <div>
+          <div class="item-name">ダイカットステッカー</div>
+          <div class="item-name-en">Die-cut Sticker ／ Ryuji</div>
+        </div>
+      </div>
+      <div class="item-launch">2026.08 Launch</div>
+    </div>
+
+    <div class="item-body multi-variation">
+      <div class="item-content">
+        <div>
+          <div class="item-section-label">Concept</div>
+          <p class="item-description">
+            車・MacBook・ボトル等にペタッと貼る1枚もののダイカットステッカー。リュウジ主役で見せ方を変えた3パターンを展開し、コレクション性とシリーズ感を両立。<strong style="font-weight: 500;">「品質の証言者」としてのリュウジ像を多面的に表現</strong>することで、貼る場所や気分に合わせて選べる楽しさを提供。
+          </p>
+        </div>
+      </div>
+
+      <div class="variation-grid">
+        <div class="variation-item">
+          <div class="variation-image-frame primary">
+            <img src="images/01a_sticker_portrait.jpg" alt="ステッカー 円形ポートレート" />
+          </div>
+          <div class="variation-label">A: 円形ポートレート<span class="recommended-mark">— Primary</span></div>
+          <div class="variation-desc">リュウジの顔を円形に。シンプル直球。アクキー基本案と形を揃えてシリーズ感も担保。</div>
+        </div>
+        <div class="variation-item">
+          <div class="variation-image-frame">
+            <img src="images/01b_sticker_basket.jpg" alt="ステッカー 食材バスケット" />
+          </div>
+          <div class="variation-label">B: 食材バスケット</div>
+          <div class="variation-desc">福島の食材を抱えたリュウジ。「品質を選び抜く目利き」というコンセプトを最も強く体現。</div>
+        </div>
+        <div class="variation-item">
+          <div class="variation-image-frame">
+            <img src="images/01c_sticker_bumper.jpg" alt="ステッカー バンパースタイル" />
+          </div>
+          <div class="variation-label">C: バンパースタイル</div>
+          <div class="variation-desc">横長で「presented by Ryuji」のタイポグラフィ主役。エディトリアルで上質。</div>
+        </div>
+      </div>
+
+      <dl class="item-meta">
+        <dt>Format</dt><dd>ダイカットステッカー（オンデマンド印刷）</dd>
+        <dt>Size</dt><dd>A・B案: 直径80mm前後／C案: 120×60mm</dd>
+        <dt>Material</dt><dd>アート紙＋グロスPP加工</dd>
+        <dt>Cutting</dt><dd>カットあり（デザインに沿ったダイカット）</dd>
+        <dt>Quantity</dt><dd>60部想定</dd>
+        <dt>Use</dt><dd>車・MacBook・ボトル・スーツケース・楽器ケース等</dd>
+      </dl>
+    </div>
+  </article>
+
+  <!-- ② レシピ本 -->
+  <article class="item">
+    <div class="item-header">
+      <div class="item-num-block">
+        <div class="item-num">02</div>
+        <div>
+          <div class="item-name">レシピ本</div>
+          <div class="item-name-en">Recipe Book ／ Ryuji</div>
+        </div>
+      </div>
+      <div class="item-launch">2026.08 Launch</div>
+    </div>
+
+    <div class="item-body recipe-dual">
+      <div class="item-content">
+        <div>
+          <div class="item-section-label">Concept</div>
+          <p class="item-description">
+            表紙中央に複数の福島食材を散らし、ブランドコンセプトの「多様性（Diversity）」を装丁で体現。下部に「presented by Ryuji」と控えめに署名することで、リュウジ＝レシピの作り手であり、主役は福島食材という構図を保つ。中面はB5の余白を活かした上質なエディトリアル設計で、福島食材を使ったリュウジ監修レシピを掲載。
+          </p>
+        </div>
+      </div>
+
+      <div class="recipe-images">
+        <div class="recipe-image-wrap cover">
+          <div class="image-frame">
+            <img src="images/02_recipe_book.jpg" alt="レシピ本表紙" />
+          </div>
+          <div class="recipe-image-label">Front Cover</div>
+        </div>
+        <div class="recipe-image-wrap spread">
+          <div class="image-frame">
+            <img src="images/02_recipe_book_spread.jpg" alt="レシピ本 中面見開き" />
+          </div>
+          <div class="recipe-image-label">Inside Spread</div>
+        </div>
+      </div>
+
+      <dl class="item-meta">
+        <dt>Format</dt><dd>中綴じ冊子（オフセット印刷）</dd>
+        <dt>Size</dt><dd>B5（182×257mm）／縦</dd>
+        <dt>Pages</dt><dd>32〜48ページ想定</dd>
+        <dt>Material</dt><dd>コート紙</dd>
+        <dt>Binding</dt><dd>中綴じ／左綴じ</dd>
+        <dt>Quantity</dt><dd>100部想定</dd>
+      </dl>
+    </div>
+  </article>
+
+  <!-- ③ アクキー -->
+  <article class="item">
+    <div class="item-header">
+      <div class="item-num-block">
+        <div class="item-num">03</div>
+        <div>
+          <div class="item-name">アクリルキーホルダー</div>
+          <div class="item-name-en">Acrylic Keychain ／ Umezawa Tomio</div>
+        </div>
+      </div>
+      <div class="item-launch">2026.10 Launch</div>
+    </div>
+
+    <div class="item-body multi-variation">
+      <div class="item-content">
+        <div>
+          <div class="item-section-label">Concept</div>
+          <p class="item-description">
+            ステッカーと同じ円形メダル形状を採用し、シリーズの統一感を物理的な形で担保。3要素ルールをコンパクトな立体物に翻訳。社内検討用に3パターン提示。
+          </p>
+        </div>
+      </div>
+
+      <div class="variation-grid">
+        <div class="variation-item">
+          <div class="variation-image-frame primary">
+            <img src="images/03a_keychain_medallion.jpg" alt="アクキー基本案 円形メダル" />
+          </div>
+          <div class="variation-label">A: 円形メダル<span class="recommended-mark">— Primary</span></div>
+          <div class="variation-desc">3要素を同心円に配置。シリーズ統一感が最大化される基本案。</div>
+        </div>
+        <div class="variation-item">
+          <div class="variation-image-frame">
+            <img src="images/03b_keychain_half.jpg" alt="アクキー ハーフ＆ハーフ" />
+          </div>
+          <div class="variation-label">B: ハーフ＆ハーフ</div>
+          <div class="variation-desc">左に梅澤さん／右に品目色。コラボ感が直感的に伝わる構図。</div>
+        </div>
+        <div class="variation-item">
+          <div class="variation-image-frame">
+            <img src="images/03c_keychain_plate.jpg" alt="アクキー 縦長プレート" />
+          </div>
+          <div class="variation-label">C: 縦長プレート</div>
+          <div class="variation-desc">ドッグタグ風。3要素を縦に並べた現代的フォルム。</div>
+        </div>
+      </div>
+
+      <dl class="item-meta">
+        <dt>Format</dt><dd>フリーカットアクリルキーホルダー M</dd>
+        <dt>Size</dt><dd>60×60mm／厚み3mm</dd>
+        <dt>Material</dt><dd>アクリル（透明）</dd>
+        <dt>Hardware</dt><dd>ボールチェーン</dd>
+        <dt>Use</dt><dd>バッグ・キーケースのアクセント</dd>
+      </dl>
+    </div>
+  </article>
+
+  <!-- ④ トート -->
+  <article class="item">
+    <div class="item-header">
+      <div class="item-num-block">
+        <div class="item-num">04</div>
+        <div>
+          <div class="item-name">トートバッグ</div>
+          <div class="item-name-en">Tote Bag ／ Umezawa Tomio</div>
+        </div>
+      </div>
+      <div class="item-launch">2026.10 Launch</div>
+    </div>
+
+    <div class="item-body multi-variation">
+      <div class="item-content">
+        <div>
+          <div class="item-section-label">Concept</div>
+          <p class="item-description">
+            アクキーの円形メダルをそのまま大判化し、生成りキャンバスに単独配置。情報を絞ることで日常使い時の主張を抑え、当選者がIG投稿する際にも背景を選ばない汎用性を確保。アクキーとセット感のあるペアグッズとして機能。社内検討用に3パターン提示。<br><br>
+            印刷はキャンバストート（M）のシルクスクリーン単色（両面）で統一。<strong style="font-weight: 500;">単色印刷の上質さがブランドの「品質」コンセプトと噛み合い、シリーズの統一感を最大化する</strong>。
+          </p>
+        </div>
+      </div>
+
+      <div class="variation-grid">
+        <div class="variation-item">
+          <div class="variation-image-frame primary">
+            <img src="images/04a_tote_medallion.jpg" alt="トート基本案 メダル単独" />
+          </div>
+          <div class="variation-label">A: メダル単独<span class="recommended-mark">— Primary</span></div>
+          <div class="variation-desc">アクキー基本案と完全に揃う。無印的な日常使い向き。</div>
+        </div>
+        <div class="variation-item">
+          <div class="variation-image-frame">
+            <img src="images/04b_tote_asymmetric.jpg" alt="トート 大胆な左右非対称" />
+          </div>
+          <div class="variation-label">B: 大胆な左右非対称</div>
+          <div class="variation-desc">左上にロゴ大／右下に梅澤さん。エディトリアル感ある誌面のような構成。</div>
+        </div>
+        <div class="variation-item">
+          <div class="variation-image-frame">
+            <img src="images/04c_tote_pattern_v2.jpg" alt="トート 線画パターン＋メダル（単色）" />
+          </div>
+          <div class="variation-label">C: 品目総柄＋メダル</div>
+          <div class="variation-desc">桃を線画化して全面に散らし中央にメダル。単色プリントの上品な総柄。リバティ的な知的さ。</div>
+        </div>
+      </div>
+
+      <dl class="item-meta">
+        <dt>Format</dt><dd>キャンバストート（M）TR-0105</dd>
+        <dt>Size</dt><dd>360×370×マチ110mm／持ち手 25×560mm</dd>
+        <dt>Capacity</dt><dd>約10ℓ</dd>
+        <dt>Material</dt><dd>コットン 370g/㎡（ナチュラル）</dd>
+        <dt>Print</dt><dd>シルクスクリーン印刷（単色・両面）</dd>
+        <dt>Use</dt><dd>普段使いのトート・エコバッグ</dd>
+      </dl>
+    </div>
+  </article>
+
+</section>
+
+</body>
+</html>
